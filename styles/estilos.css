@@ -80,3 +80,7 @@ body {
   .hide {
     display: none;
   }
+
+  * {
+    font-family: 'Cabri';
+  }
