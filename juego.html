@@ -5,17 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/estilos.css">
-    <title>Document</title>
+    <title>Juego de Memoria</title>
 </head>
 <body>
-    <body>
-        <div class="gameboard">
-          <div id="color1" class="color color1 left" data-color="color1"></div>
-          <div id="color2" class="color color2 right" data-color="color2"></div>
-          <div id="color3" class="color color3 left" data-color="color3"></div>
-          <div id="color4" class="color color4 right" data-color="color4"></div>
-          <button id="btnEmpezar" class="btn-start" onclick="empezarJuego()">Empezar a jugar!</button>
+  <header class="header">
+    <h3>Juego de Memoria</h3>
+    <p>Seleccione Dificultad</p>
+  </header>
+  <main>
+    <div class="primary-content">
+      <div class="Nav-content">
+        <div class="div1" >
+          <label for="input1">Seleccione Dificultad</label>
+          <select name="dificultad" id="input1">
+            <option>Easy</option>
+            <option selected>Normal</option>
+            <option>Hard</option>
+          </select>
         </div>
+        <div class="div1">
+          <label for="input2">Seleccione Nivel</label>
+          <input type="number" placeholder="1" id="input2" min="1" max="10">
+        </div>
+        <div class="div1">
+          <label for="input3">Seleccione Velocidad</label>
+          <select name="velocidad" id="input3">
+            <option>Slow</option>
+            <option selected>Normal</option>
+            <option>Fast</option>
+          </select>  
+        </div>
+      </div>
+      <div class="gameboard">
+        <!-- data color es importante para la interación en JS, revisar porque -->
+        <div id="color1" class="color color1" data-color="color1"></div>
+        <div id="color2" class="color color2" data-color="color2"></div>
+        <div id="color3" class="color color3" data-color="color3"></div>
+        <div id="color4" class="color color4" data-color="color4"></div>
+      </div>
+    </div>
+    <div class="bottoms">
+      <button id="btnEmpezar" class="btn-start" onclick="empezarJuego()">Empezar a jugar!</button>
+    </div>
+  </main>
+<footer class="footer">
+  <p>Este es el footer</footer></p>
+</footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 <script src="./juego.js"></script>
 </body>
