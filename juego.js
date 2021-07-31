@@ -3,16 +3,31 @@ const color1 = document.getElementById('color1')
 const color2 = document.getElementById('color2')
 const color3 = document.getElementById('color3')
 const color4 = document.getElementById('color4')
-const ULTIMO_NIVEL = 5
+
+const dificultad = document.getElementById('input1')
+const level = document.getElementById('input2')
+const velocidad = document.getElementById('input3')
+
+
+console.log(dificultad.options[dificultad.selectedIndex].value)
+
+
+const ULTIMO_NIVEL = 10
 
 class Juego {
+
     constructor(){
         this.inicializar = this.inicializar.bind(this)
-        this.inicializar()
-        this.generarSecuencia()
+        // Cada vez que se ejecute la función con el onclick se vuelve a ejecutar las siguientes 3 funciones.
+        this.inicializar() 
+        this.generarSecuencia() 
         setTimeout(() => {
-            this.siguienteNivel()                
-        }, 250);
+            this.siguienteNivel()                 
+        }, 100);
+        
+        let velocidadSelected = velocidad.options[velocidad.selectedIndex].value
+        this.vel = this.seclectVelocity(velocidadSelected)
+              
     }
 
     inicializar(){
@@ -20,7 +35,7 @@ class Juego {
         this.elegirColor = this.elegirColor.bind(this)// Para dejar atado el this "clase Juego" al método elegirColor, esto porque si no se usa el eventlistener escucha es el HTML del bloton de color
         this.toggleBtnEmpezar()
         
-        this.nivel = 1
+        this.nivel = level.value
         this.colores = {
             color1,
             color2,
@@ -30,11 +45,16 @@ class Juego {
     }
 
     toggleBtnEmpezar(){
-        let check = btnEmpezar.classList.contains('hide')
+        let check = btnEmpezar.classList.contains('btn-startD')
         if (check){
-            btnEmpezar.classList.remove('hide') // A las clases de css de ese botón se remueve una que se llama 'hide' definida en el .css
+            btnEmpezar.classList.replace('btn-startD','btn-start') // A las clases de css de ese botón se remueve una que se llama 'hide' definida en el .css
+            btnEmpezar.removeAttribute("disabled","")
+            btnEmpezar.innerText = "Vuelvelo a intentar!"
+
         } else {
-            btnEmpezar.classList.add('hide') // A las clases de css de ese botón se añade una que se llama 'hide' definida en el .css
+            btnEmpezar.classList.replace('btn-start','btn-startD') // A las clases de css de ese botón se añade una que se llama 'hide' definida en el .css
+            btnEmpezar.setAttribute("disabled","")
+            btnEmpezar.innerText = "Estas Jugando!"
         }
     }
 
@@ -82,7 +102,7 @@ class Juego {
             const color = this.transformarNumeroAColor(this.secuencia[i])
             setTimeout(() => {
                 this.iluminarColor(color)
-            }, 750 * ( i+1 ) ); 
+            }, this.vel * ( i+1 ) ); 
         }
     }
 
@@ -122,13 +142,14 @@ class Juego {
         this.iluminarColor(nombreColor)
         if (numeroColor === this.secuencia[this.subnivel]){
             this.subnivel++
-            if (this.subnivel === this.nivel){
+            if (this.subnivel == this.nivel){
                 this.nivel++
                 this.eliminarEventosClick()
                 if (this.nivel === (ULTIMO_NIVEL + 1)){
                     this.ganoElJuego()
                 } else {
                     setTimeout(this.siguienteNivel(), 1000) // Se hace Bind porque setTimeout cambia el this a windows y queremos el this de la clase
+                    console.log("Se ejecutó siguiente nivel")
                 } 
             }
         } else {
@@ -151,9 +172,19 @@ class Juego {
         })
     }
 
+    seclectVelocity(velocidad) {
+        switch (velocidad) {
+            case "Slow":
+            return 750
+            case "Normal":
+            return 500
+            case "Fast":
+            return 250
+        }
+    }
+
 }
 
-function empezarJuego() {
-    // alert('El juego va a comenzar')
+function empezarJuego() { // Esta función se ejecuta con un atributo onclick del elemento button
     juego = new Juego()
 }

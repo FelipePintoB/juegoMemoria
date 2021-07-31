@@ -75,6 +75,7 @@ body{
   .Nav-content p {
     color: white;
   }
+
   .div1 {
     display: flex;
     align-content: space-between;
@@ -88,6 +89,7 @@ body{
 
 .div1 label {
   text-align: center;
+  padding-bottom: 1vh;
 }
 
   #input1 {
@@ -139,12 +141,8 @@ body{
     box-shadow: 0 0 20px #eee;
   }
 
-  .bottoms {
-    justify-content: center;
-  }
-
   .color {
-    width: 6vw;
+    width: 5vw;
     /* height: 50%; */
     height: 10vh;
     margin: 5px;
@@ -185,20 +183,19 @@ body{
     background-image: linear-gradient(to top, #0fd850 0%, #f9f047 100%);
   }
 
-  /* .btn-start {
-    width: 30vw;
-    border-radius: 40%;
-    height: 10vh;
-    background: #000000;
-    color: #ffffff;
-    font-size: 1.5rem;
-  } */
-
-  .hide {
-    display: none;
+  .btn-startD {background-image: linear-gradient(to right, #314755 0%, red  51%, #314755  100%)}
+  .btn-startD {
+    margin: 10px;
+     padding: 15px 45px;
+     text-align: center;
+     text-transform: uppercase;
+     transition: 0.5s;
+     background-size: 200% auto;
+     color: white;            
+     box-shadow: 0 0 20px #eee;
+     border-radius: 10px;
+     display: block;
   }
-
-
 
   .btn-start {background-image: linear-gradient(to right, #314755 0%, #26a0da  51%, #314755  100%)}
   .btn-start {
