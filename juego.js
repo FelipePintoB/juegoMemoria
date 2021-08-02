@@ -228,7 +228,7 @@ class Juego {
     }
 
     perdioElJuego(){
-        swal("Bad!", "Lo lamentamos, perdistes :s", "error")
+        swal("Bad!", "Lo lamentamos, perdiste :s", "error")
         .then(() =>{
             this.eliminarEventosClick()
             this.inicializar()
