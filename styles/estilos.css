@@ -19,8 +19,11 @@ body{
   min-height: 8vh;
   width: 100%;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 10vh;
+
 }
 
 .footer {
@@ -30,8 +33,15 @@ body{
   min-height: 8vh;
   width: 100%;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 10vh;
+}
+
+.footer a {
+  text-decoration: none;
+  color: white;
 }
 
   main {
@@ -127,18 +137,21 @@ body{
   }
 
   .gameboard {
-    display: flex;
-    height: 50vh;
-    width: 60vh;
-    overflow: hidden;
-    border-width: 0.2rem;
-    border-color: #ffffff;
-    border-style: double;
-    border-radius: 10%;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
-    box-shadow: 0 0 20px #eee;
+      display: flex;
+      height: 50vh;
+      width: 60vh;
+      padding: 10vw 10vh;
+      overflow: hidden;
+      border-width: 0.2rem;
+      border-color: #ffffff;
+      border-style: double;
+      border-radius: 10%;
+      flex-wrap: wrap;
+      align-items: center;
+      box-shadow: 0 0 20px #eee;
+      align-content: space-around;
+      justify-content: space-evenly;
+      flex-direction: row;
   }
 
   .color {
@@ -175,7 +188,6 @@ body{
   }
 
   .color4 {
-    
     background-image: linear-gradient(-60deg, #16a085 0%, #f4d03f 100%);
   }
 
@@ -183,8 +195,82 @@ body{
     background-image: linear-gradient(to top, #0fd850 0%, #f9f047 100%);
   }
 
-  .btn-startD {background-image: linear-gradient(to right, #314755 0%, red  51%, #314755  100%)}
-  .btn-startD {
+  .color5 {
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,209,67,1) 0%, rgba(255,145,83,1) 90% );
+  }
+
+  .color5.light {
+    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  }
+
+  .color6 {
+    background-image: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
+  }
+
+  .color6.light {
+    background-image: linear-gradient(120deg, #fccb90 0%, #d57eeb 100%);
+  }
+
+  .color7 {
+    background-color: #08AEEA;
+    background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
+  }
+
+  .color7.light {
+    background-color: #52ACFF;
+    background-image: linear-gradient(180deg, #52ACFF 25%, #FFE32C 100%);
+  }
+
+  .color8 {
+    background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+
+  .color8.light {
+    background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
+  }
+
+  .color9 {
+    background-color: #00DBDE;
+    background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+  }
+
+  .color9.light {
+    background-color: #D9AFD9;
+    background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+  }
+
+  .color10 {
+    background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+  }
+
+  .color10.light {
+    background-color: #85FFBD;
+    background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+  }
+
+  .color11 {
+    background-color: #FF9A8B;
+background-image: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
+  }
+
+  .color11.light {
+    background-color: #FBDA61;
+    background-image: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%);
+  }
+
+  .color12 {
+    background-color: #FFE53B;
+    background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%);
+  }
+
+  .color12.light {
+    background-color: #e3c636;
+    background-image: linear-gradient(147deg, #e3c636 0%, #ff9797 74%);
+  }
+
+  .btn-startD:disabled {background-image: linear-gradient(to right, #314755 0%, white  51%, #314755  100%)}
+  .btn-startD:disabled {
     margin: 10px;
      padding: 15px 45px;
      text-align: center;
